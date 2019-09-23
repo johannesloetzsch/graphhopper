@@ -1,0 +1,3 @@
+[submodule "graphhopper-osm-id-mapping"]
+	path = graphhopper-osm-id-mapping
+	url = https://github.com/karussell/graphhopper-osm-id-mapping.git

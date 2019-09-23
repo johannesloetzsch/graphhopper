@@ -13,8 +13,11 @@
                  [io.dropwizard/dropwizard-testing "1.3.12"
                    :exclusions [org.glassfish.jersey.core/jersey-server
                                 org.glassfish.hk2/hk2-utils]]
-                 [org.openstreetmap.osmosis/osmosis-osm-binary "0.47"]]
-  :java-source-paths ["api/src" "web-api/src" "core/src" "reader-osm/src"]
+                 [org.openstreetmap.osmosis/osmosis-osm-binary "0.47"]
+                 [org.apache.commons/commons-compress "1.18"]]
+  :java-source-paths ["api/src" "web-api/src" "core/src" "reader-osm/src" "graphhopper-osm-id-mapping/src"]
   :source-paths ["clj-dev/src"]
   :resource-paths ["core/src/main/resources"]
-  :repl-options {:init-ns graphhopper-cljc.core})
+  :main ^:skip-aot graphhopper-cljc.core
+  :profiles {:dev {:repl-options {:init-ns graphhopper-cljc.core}}
+             :uberjar {:aot :all}})
